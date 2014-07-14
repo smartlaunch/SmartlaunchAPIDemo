@@ -63,31 +63,31 @@
             this.ButtonUserAll = new System.Windows.Forms.Button();
             this.ButtonUser = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.ButtonComputerAll = new System.Windows.Forms.Button();
-            this.ButtonComputer = new System.Windows.Forms.Button();
-            this.ButtonComputerTurnOn = new System.Windows.Forms.Button();
-            this.ButtonComputerTurnOff = new System.Windows.Forms.Button();
-            this.ButtonComputerGroupAll = new System.Windows.Forms.Button();
-            this.ButtonComputerGroup = new System.Windows.Forms.Button();
-            this.ButtonComputerGroupByComputerName = new System.Windows.Forms.Button();
-            this.ButtonLayoutGroupAll = new System.Windows.Forms.Button();
-            this.ButtonLayoutGroup = new System.Windows.Forms.Button();
-            this.ButtonLayoutGroupByComputerGroupName = new System.Windows.Forms.Button();
             this.ButtonLayoutGroupByComputerName = new System.Windows.Forms.Button();
+            this.ButtonLayoutGroupByComputerGroupName = new System.Windows.Forms.Button();
+            this.ButtonLayoutGroup = new System.Windows.Forms.Button();
+            this.ButtonLayoutGroupAll = new System.Windows.Forms.Button();
+            this.ButtonComputerGroupByComputerName = new System.Windows.Forms.Button();
+            this.ButtonComputerGroup = new System.Windows.Forms.Button();
+            this.ButtonComputerGroupAll = new System.Windows.Forms.Button();
+            this.ButtonComputerTurnOff = new System.Windows.Forms.Button();
+            this.ButtonComputerTurnOn = new System.Windows.Forms.Button();
+            this.ButtonComputer = new System.Windows.Forms.Button();
+            this.ButtonComputerAll = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.ButtonProductGroupAll = new System.Windows.Forms.Button();
-            this.ButtonProductGroup = new System.Windows.Forms.Button();
-            this.ButtonProductAll = new System.Windows.Forms.Button();
-            this.ButtonProduct = new System.Windows.Forms.Button();
-            this.ButtonOfferAll = new System.Windows.Forms.Button();
             this.ButtonOffer = new System.Windows.Forms.Button();
+            this.ButtonOfferAll = new System.Windows.Forms.Button();
+            this.ButtonProduct = new System.Windows.Forms.Button();
+            this.ButtonProductAll = new System.Windows.Forms.Button();
+            this.ButtonProductGroup = new System.Windows.Forms.Button();
+            this.ButtonProductGroupAll = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.ButtonEmployeeAll = new System.Windows.Forms.Button();
-            this.ButtonEmployee = new System.Windows.Forms.Button();
-            this.ButtonEmployeeLogin = new System.Windows.Forms.Button();
-            this.ButtonFinancialReport = new System.Windows.Forms.Button();
-            this.ButtonRESTAPIVersion = new System.Windows.Forms.Button();
             this.ButtonSmartlaunchVersion = new System.Windows.Forms.Button();
+            this.ButtonRESTAPIVersion = new System.Windows.Forms.Button();
+            this.ButtonFinancialReport = new System.Windows.Forms.Button();
+            this.ButtonEmployeeLogin = new System.Windows.Forms.Button();
+            this.ButtonEmployee = new System.Windows.Forms.Button();
+            this.ButtonEmployeeAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -118,7 +118,6 @@
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtOutput.Size = new System.Drawing.Size(457, 508);
             this.txtOutput.TabIndex = 2;
-            this.txtOutput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOutput_KeyPress);
             // 
             // groupBox2
             // 
@@ -280,6 +279,7 @@
             this.ButtonUserAddOffers.TabIndex = 42;
             this.ButtonUserAddOffers.Text = "UserAddOffers";
             this.ButtonUserAddOffers.UseVisualStyleBackColor = true;
+            this.ButtonUserAddOffers.Click += new System.EventHandler(this.ButtonUserAddOffers_Click);
             // 
             // ButtonUserAddOffer
             // 
@@ -289,6 +289,7 @@
             this.ButtonUserAddOffer.TabIndex = 41;
             this.ButtonUserAddOffer.Text = "UserAddOffer";
             this.ButtonUserAddOffer.UseVisualStyleBackColor = true;
+            this.ButtonUserAddOffer.Click += new System.EventHandler(this.ButtonUserAddOffer_Click);
             // 
             // ButtonUserAddProducts
             // 
@@ -298,6 +299,7 @@
             this.ButtonUserAddProducts.TabIndex = 40;
             this.ButtonUserAddProducts.Text = "UserAddProducts";
             this.ButtonUserAddProducts.UseVisualStyleBackColor = true;
+            this.ButtonUserAddProducts.Click += new System.EventHandler(this.ButtonUserAddProducts_Click);
             // 
             // ButtonUserAddProduct
             // 
@@ -307,6 +309,7 @@
             this.ButtonUserAddProduct.TabIndex = 39;
             this.ButtonUserAddProduct.Text = "UserAddProduct";
             this.ButtonUserAddProduct.UseVisualStyleBackColor = true;
+            this.ButtonUserAddProduct.Click += new System.EventHandler(this.ButtonUserAddProduct_Click);
             // 
             // ButtonUserAddMoney
             // 
@@ -316,6 +319,7 @@
             this.ButtonUserAddMoney.TabIndex = 38;
             this.ButtonUserAddMoney.Text = "UserAddMoney";
             this.ButtonUserAddMoney.UseVisualStyleBackColor = true;
+            this.ButtonUserAddMoney.Click += new System.EventHandler(this.ButtonUserAddMoney_Click);
             // 
             // ButtonUserAddTime
             // 
@@ -325,6 +329,7 @@
             this.ButtonUserAddTime.TabIndex = 37;
             this.ButtonUserAddTime.Text = "UserAddTime";
             this.ButtonUserAddTime.UseVisualStyleBackColor = true;
+            this.ButtonUserAddTime.Click += new System.EventHandler(this.ButtonUserAddTime_Click);
             // 
             // ButtonUserGetBill
             // 
@@ -487,95 +492,15 @@
             this.tabPage2.Text = "COMPUTERS";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // ButtonComputerAll
+            // ButtonLayoutGroupByComputerName
             // 
-            this.ButtonComputerAll.Location = new System.Drawing.Point(6, 6);
-            this.ButtonComputerAll.Name = "ButtonComputerAll";
-            this.ButtonComputerAll.Size = new System.Drawing.Size(150, 30);
-            this.ButtonComputerAll.TabIndex = 44;
-            this.ButtonComputerAll.Text = "ComputerAll";
-            this.ButtonComputerAll.UseVisualStyleBackColor = true;
-            this.ButtonComputerAll.Click += new System.EventHandler(this.ButtonComputerAll_Click);
-            // 
-            // ButtonComputer
-            // 
-            this.ButtonComputer.Location = new System.Drawing.Point(6, 42);
-            this.ButtonComputer.Name = "ButtonComputer";
-            this.ButtonComputer.Size = new System.Drawing.Size(150, 30);
-            this.ButtonComputer.TabIndex = 45;
-            this.ButtonComputer.Text = "Computer";
-            this.ButtonComputer.UseVisualStyleBackColor = true;
-            this.ButtonComputer.Click += new System.EventHandler(this.ButtonComputer_Click);
-            // 
-            // ButtonComputerTurnOn
-            // 
-            this.ButtonComputerTurnOn.Location = new System.Drawing.Point(6, 78);
-            this.ButtonComputerTurnOn.Name = "ButtonComputerTurnOn";
-            this.ButtonComputerTurnOn.Size = new System.Drawing.Size(150, 30);
-            this.ButtonComputerTurnOn.TabIndex = 46;
-            this.ButtonComputerTurnOn.Text = "ComputerTurnOn";
-            this.ButtonComputerTurnOn.UseVisualStyleBackColor = true;
-            this.ButtonComputerTurnOn.Click += new System.EventHandler(this.ButtonComputerTurnOn_Click);
-            // 
-            // ButtonComputerTurnOff
-            // 
-            this.ButtonComputerTurnOff.Location = new System.Drawing.Point(164, 78);
-            this.ButtonComputerTurnOff.Name = "ButtonComputerTurnOff";
-            this.ButtonComputerTurnOff.Size = new System.Drawing.Size(150, 30);
-            this.ButtonComputerTurnOff.TabIndex = 47;
-            this.ButtonComputerTurnOff.Text = "ComputerTurnOff";
-            this.ButtonComputerTurnOff.UseVisualStyleBackColor = true;
-            this.ButtonComputerTurnOff.Click += new System.EventHandler(this.ButtonComputerTurnOff_Click);
-            // 
-            // ButtonComputerGroupAll
-            // 
-            this.ButtonComputerGroupAll.Location = new System.Drawing.Point(6, 150);
-            this.ButtonComputerGroupAll.Name = "ButtonComputerGroupAll";
-            this.ButtonComputerGroupAll.Size = new System.Drawing.Size(150, 30);
-            this.ButtonComputerGroupAll.TabIndex = 48;
-            this.ButtonComputerGroupAll.Text = "ComputerGroupAll";
-            this.ButtonComputerGroupAll.UseVisualStyleBackColor = true;
-            this.ButtonComputerGroupAll.Click += new System.EventHandler(this.ButtonComputerGroupAll_Click);
-            // 
-            // ButtonComputerGroup
-            // 
-            this.ButtonComputerGroup.Location = new System.Drawing.Point(6, 186);
-            this.ButtonComputerGroup.Name = "ButtonComputerGroup";
-            this.ButtonComputerGroup.Size = new System.Drawing.Size(150, 30);
-            this.ButtonComputerGroup.TabIndex = 49;
-            this.ButtonComputerGroup.Text = "ComputerGroup";
-            this.ButtonComputerGroup.UseVisualStyleBackColor = true;
-            this.ButtonComputerGroup.Click += new System.EventHandler(this.ButtonComputerGroup_Click);
-            // 
-            // ButtonComputerGroupByComputerName
-            // 
-            this.ButtonComputerGroupByComputerName.Location = new System.Drawing.Point(162, 186);
-            this.ButtonComputerGroupByComputerName.Name = "ButtonComputerGroupByComputerName";
-            this.ButtonComputerGroupByComputerName.Size = new System.Drawing.Size(200, 30);
-            this.ButtonComputerGroupByComputerName.TabIndex = 50;
-            this.ButtonComputerGroupByComputerName.Text = "ComputerGroupByComputerName";
-            this.ButtonComputerGroupByComputerName.UseVisualStyleBackColor = true;
-            this.ButtonComputerGroupByComputerName.Click += new System.EventHandler(this.ButtonComputerGroupByComputerName_Click);
-            // 
-            // ButtonLayoutGroupAll
-            // 
-            this.ButtonLayoutGroupAll.Location = new System.Drawing.Point(6, 258);
-            this.ButtonLayoutGroupAll.Name = "ButtonLayoutGroupAll";
-            this.ButtonLayoutGroupAll.Size = new System.Drawing.Size(150, 30);
-            this.ButtonLayoutGroupAll.TabIndex = 51;
-            this.ButtonLayoutGroupAll.Text = "LayoutGroupAll";
-            this.ButtonLayoutGroupAll.UseVisualStyleBackColor = true;
-            this.ButtonLayoutGroupAll.Click += new System.EventHandler(this.ButtonLayoutGroupAll_Click);
-            // 
-            // ButtonLayoutGroup
-            // 
-            this.ButtonLayoutGroup.Location = new System.Drawing.Point(6, 294);
-            this.ButtonLayoutGroup.Name = "ButtonLayoutGroup";
-            this.ButtonLayoutGroup.Size = new System.Drawing.Size(150, 30);
-            this.ButtonLayoutGroup.TabIndex = 52;
-            this.ButtonLayoutGroup.Text = "LayoutGroup";
-            this.ButtonLayoutGroup.UseVisualStyleBackColor = true;
-            this.ButtonLayoutGroup.Click += new System.EventHandler(this.ButtonLayoutGroup_Click);
+            this.ButtonLayoutGroupByComputerName.Location = new System.Drawing.Point(212, 330);
+            this.ButtonLayoutGroupByComputerName.Name = "ButtonLayoutGroupByComputerName";
+            this.ButtonLayoutGroupByComputerName.Size = new System.Drawing.Size(200, 30);
+            this.ButtonLayoutGroupByComputerName.TabIndex = 54;
+            this.ButtonLayoutGroupByComputerName.Text = "LayoutGroupByComputerName";
+            this.ButtonLayoutGroupByComputerName.UseVisualStyleBackColor = true;
+            this.ButtonLayoutGroupByComputerName.Click += new System.EventHandler(this.ButtonLayoutGroupByComputerName_Click);
             // 
             // ButtonLayoutGroupByComputerGroupName
             // 
@@ -587,15 +512,95 @@
             this.ButtonLayoutGroupByComputerGroupName.UseVisualStyleBackColor = true;
             this.ButtonLayoutGroupByComputerGroupName.Click += new System.EventHandler(this.ButtonLayoutGroupByComputerGroupName_Click);
             // 
-            // ButtonLayoutGroupByComputerName
+            // ButtonLayoutGroup
             // 
-            this.ButtonLayoutGroupByComputerName.Location = new System.Drawing.Point(212, 330);
-            this.ButtonLayoutGroupByComputerName.Name = "ButtonLayoutGroupByComputerName";
-            this.ButtonLayoutGroupByComputerName.Size = new System.Drawing.Size(200, 30);
-            this.ButtonLayoutGroupByComputerName.TabIndex = 54;
-            this.ButtonLayoutGroupByComputerName.Text = "LayoutGroupByComputerName";
-            this.ButtonLayoutGroupByComputerName.UseVisualStyleBackColor = true;
-            this.ButtonLayoutGroupByComputerName.Click += new System.EventHandler(this.ButtonLayoutGroupByComputerName_Click);
+            this.ButtonLayoutGroup.Location = new System.Drawing.Point(6, 294);
+            this.ButtonLayoutGroup.Name = "ButtonLayoutGroup";
+            this.ButtonLayoutGroup.Size = new System.Drawing.Size(150, 30);
+            this.ButtonLayoutGroup.TabIndex = 52;
+            this.ButtonLayoutGroup.Text = "LayoutGroup";
+            this.ButtonLayoutGroup.UseVisualStyleBackColor = true;
+            this.ButtonLayoutGroup.Click += new System.EventHandler(this.ButtonLayoutGroup_Click);
+            // 
+            // ButtonLayoutGroupAll
+            // 
+            this.ButtonLayoutGroupAll.Location = new System.Drawing.Point(6, 258);
+            this.ButtonLayoutGroupAll.Name = "ButtonLayoutGroupAll";
+            this.ButtonLayoutGroupAll.Size = new System.Drawing.Size(150, 30);
+            this.ButtonLayoutGroupAll.TabIndex = 51;
+            this.ButtonLayoutGroupAll.Text = "LayoutGroupAll";
+            this.ButtonLayoutGroupAll.UseVisualStyleBackColor = true;
+            this.ButtonLayoutGroupAll.Click += new System.EventHandler(this.ButtonLayoutGroupAll_Click);
+            // 
+            // ButtonComputerGroupByComputerName
+            // 
+            this.ButtonComputerGroupByComputerName.Location = new System.Drawing.Point(162, 186);
+            this.ButtonComputerGroupByComputerName.Name = "ButtonComputerGroupByComputerName";
+            this.ButtonComputerGroupByComputerName.Size = new System.Drawing.Size(200, 30);
+            this.ButtonComputerGroupByComputerName.TabIndex = 50;
+            this.ButtonComputerGroupByComputerName.Text = "ComputerGroupByComputerName";
+            this.ButtonComputerGroupByComputerName.UseVisualStyleBackColor = true;
+            this.ButtonComputerGroupByComputerName.Click += new System.EventHandler(this.ButtonComputerGroupByComputerName_Click);
+            // 
+            // ButtonComputerGroup
+            // 
+            this.ButtonComputerGroup.Location = new System.Drawing.Point(6, 186);
+            this.ButtonComputerGroup.Name = "ButtonComputerGroup";
+            this.ButtonComputerGroup.Size = new System.Drawing.Size(150, 30);
+            this.ButtonComputerGroup.TabIndex = 49;
+            this.ButtonComputerGroup.Text = "ComputerGroup";
+            this.ButtonComputerGroup.UseVisualStyleBackColor = true;
+            this.ButtonComputerGroup.Click += new System.EventHandler(this.ButtonComputerGroup_Click);
+            // 
+            // ButtonComputerGroupAll
+            // 
+            this.ButtonComputerGroupAll.Location = new System.Drawing.Point(6, 150);
+            this.ButtonComputerGroupAll.Name = "ButtonComputerGroupAll";
+            this.ButtonComputerGroupAll.Size = new System.Drawing.Size(150, 30);
+            this.ButtonComputerGroupAll.TabIndex = 48;
+            this.ButtonComputerGroupAll.Text = "ComputerGroupAll";
+            this.ButtonComputerGroupAll.UseVisualStyleBackColor = true;
+            this.ButtonComputerGroupAll.Click += new System.EventHandler(this.ButtonComputerGroupAll_Click);
+            // 
+            // ButtonComputerTurnOff
+            // 
+            this.ButtonComputerTurnOff.Location = new System.Drawing.Point(164, 78);
+            this.ButtonComputerTurnOff.Name = "ButtonComputerTurnOff";
+            this.ButtonComputerTurnOff.Size = new System.Drawing.Size(150, 30);
+            this.ButtonComputerTurnOff.TabIndex = 47;
+            this.ButtonComputerTurnOff.Text = "ComputerTurnOff";
+            this.ButtonComputerTurnOff.UseVisualStyleBackColor = true;
+            this.ButtonComputerTurnOff.Click += new System.EventHandler(this.ButtonComputerTurnOff_Click);
+            // 
+            // ButtonComputerTurnOn
+            // 
+            this.ButtonComputerTurnOn.Location = new System.Drawing.Point(6, 78);
+            this.ButtonComputerTurnOn.Name = "ButtonComputerTurnOn";
+            this.ButtonComputerTurnOn.Size = new System.Drawing.Size(150, 30);
+            this.ButtonComputerTurnOn.TabIndex = 46;
+            this.ButtonComputerTurnOn.Text = "ComputerTurnOn";
+            this.ButtonComputerTurnOn.UseVisualStyleBackColor = true;
+            this.ButtonComputerTurnOn.Click += new System.EventHandler(this.ButtonComputerTurnOn_Click);
+            // 
+            // ButtonComputer
+            // 
+            this.ButtonComputer.Location = new System.Drawing.Point(6, 42);
+            this.ButtonComputer.Name = "ButtonComputer";
+            this.ButtonComputer.Size = new System.Drawing.Size(150, 30);
+            this.ButtonComputer.TabIndex = 45;
+            this.ButtonComputer.Text = "Computer";
+            this.ButtonComputer.UseVisualStyleBackColor = true;
+            this.ButtonComputer.Click += new System.EventHandler(this.ButtonComputer_Click);
+            // 
+            // ButtonComputerAll
+            // 
+            this.ButtonComputerAll.Location = new System.Drawing.Point(6, 6);
+            this.ButtonComputerAll.Name = "ButtonComputerAll";
+            this.ButtonComputerAll.Size = new System.Drawing.Size(150, 30);
+            this.ButtonComputerAll.TabIndex = 44;
+            this.ButtonComputerAll.Text = "ComputerAll";
+            this.ButtonComputerAll.UseVisualStyleBackColor = true;
+            this.ButtonComputerAll.Click += new System.EventHandler(this.ButtonComputerAll_Click);
             // 
             // tabPage3
             // 
@@ -613,45 +618,15 @@
             this.tabPage3.Text = "PRODUCTS AND OFFERS";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // ButtonProductGroupAll
+            // ButtonOffer
             // 
-            this.ButtonProductGroupAll.Location = new System.Drawing.Point(6, 6);
-            this.ButtonProductGroupAll.Name = "ButtonProductGroupAll";
-            this.ButtonProductGroupAll.Size = new System.Drawing.Size(150, 30);
-            this.ButtonProductGroupAll.TabIndex = 45;
-            this.ButtonProductGroupAll.Text = "ProductGroupAll";
-            this.ButtonProductGroupAll.UseVisualStyleBackColor = true;
-            this.ButtonProductGroupAll.Click += new System.EventHandler(this.ButtonProductGroupAll_Click);
-            // 
-            // ButtonProductGroup
-            // 
-            this.ButtonProductGroup.Location = new System.Drawing.Point(6, 42);
-            this.ButtonProductGroup.Name = "ButtonProductGroup";
-            this.ButtonProductGroup.Size = new System.Drawing.Size(150, 30);
-            this.ButtonProductGroup.TabIndex = 46;
-            this.ButtonProductGroup.Text = "ProductGroup";
-            this.ButtonProductGroup.UseVisualStyleBackColor = true;
-            this.ButtonProductGroup.Click += new System.EventHandler(this.ButtonProductGroup_Click);
-            // 
-            // ButtonProductAll
-            // 
-            this.ButtonProductAll.Location = new System.Drawing.Point(6, 114);
-            this.ButtonProductAll.Name = "ButtonProductAll";
-            this.ButtonProductAll.Size = new System.Drawing.Size(150, 30);
-            this.ButtonProductAll.TabIndex = 47;
-            this.ButtonProductAll.Text = "ProductAll";
-            this.ButtonProductAll.UseVisualStyleBackColor = true;
-            this.ButtonProductAll.Click += new System.EventHandler(this.ButtonProductAll_Click);
-            // 
-            // ButtonProduct
-            // 
-            this.ButtonProduct.Location = new System.Drawing.Point(6, 150);
-            this.ButtonProduct.Name = "ButtonProduct";
-            this.ButtonProduct.Size = new System.Drawing.Size(150, 30);
-            this.ButtonProduct.TabIndex = 48;
-            this.ButtonProduct.Text = "Product";
-            this.ButtonProduct.UseVisualStyleBackColor = true;
-            this.ButtonProduct.Click += new System.EventHandler(this.ButtonProduct_Click);
+            this.ButtonOffer.Location = new System.Drawing.Point(6, 258);
+            this.ButtonOffer.Name = "ButtonOffer";
+            this.ButtonOffer.Size = new System.Drawing.Size(150, 30);
+            this.ButtonOffer.TabIndex = 50;
+            this.ButtonOffer.Text = "Offer";
+            this.ButtonOffer.UseVisualStyleBackColor = true;
+            this.ButtonOffer.Click += new System.EventHandler(this.ButtonOffer_Click);
             // 
             // ButtonOfferAll
             // 
@@ -663,15 +638,45 @@
             this.ButtonOfferAll.UseVisualStyleBackColor = true;
             this.ButtonOfferAll.Click += new System.EventHandler(this.ButtonOfferAll_Click);
             // 
-            // ButtonOffer
+            // ButtonProduct
             // 
-            this.ButtonOffer.Location = new System.Drawing.Point(6, 258);
-            this.ButtonOffer.Name = "ButtonOffer";
-            this.ButtonOffer.Size = new System.Drawing.Size(150, 30);
-            this.ButtonOffer.TabIndex = 50;
-            this.ButtonOffer.Text = "Offer";
-            this.ButtonOffer.UseVisualStyleBackColor = true;
-            this.ButtonOffer.Click += new System.EventHandler(this.ButtonOffer_Click);
+            this.ButtonProduct.Location = new System.Drawing.Point(6, 150);
+            this.ButtonProduct.Name = "ButtonProduct";
+            this.ButtonProduct.Size = new System.Drawing.Size(150, 30);
+            this.ButtonProduct.TabIndex = 48;
+            this.ButtonProduct.Text = "Product";
+            this.ButtonProduct.UseVisualStyleBackColor = true;
+            this.ButtonProduct.Click += new System.EventHandler(this.ButtonProduct_Click);
+            // 
+            // ButtonProductAll
+            // 
+            this.ButtonProductAll.Location = new System.Drawing.Point(6, 114);
+            this.ButtonProductAll.Name = "ButtonProductAll";
+            this.ButtonProductAll.Size = new System.Drawing.Size(150, 30);
+            this.ButtonProductAll.TabIndex = 47;
+            this.ButtonProductAll.Text = "ProductAll";
+            this.ButtonProductAll.UseVisualStyleBackColor = true;
+            this.ButtonProductAll.Click += new System.EventHandler(this.ButtonProductAll_Click);
+            // 
+            // ButtonProductGroup
+            // 
+            this.ButtonProductGroup.Location = new System.Drawing.Point(6, 42);
+            this.ButtonProductGroup.Name = "ButtonProductGroup";
+            this.ButtonProductGroup.Size = new System.Drawing.Size(150, 30);
+            this.ButtonProductGroup.TabIndex = 46;
+            this.ButtonProductGroup.Text = "ProductGroup";
+            this.ButtonProductGroup.UseVisualStyleBackColor = true;
+            this.ButtonProductGroup.Click += new System.EventHandler(this.ButtonProductGroup_Click);
+            // 
+            // ButtonProductGroupAll
+            // 
+            this.ButtonProductGroupAll.Location = new System.Drawing.Point(6, 6);
+            this.ButtonProductGroupAll.Name = "ButtonProductGroupAll";
+            this.ButtonProductGroupAll.Size = new System.Drawing.Size(150, 30);
+            this.ButtonProductGroupAll.TabIndex = 45;
+            this.ButtonProductGroupAll.Text = "ProductGroupAll";
+            this.ButtonProductGroupAll.UseVisualStyleBackColor = true;
+            this.ButtonProductGroupAll.Click += new System.EventHandler(this.ButtonProductGroupAll_Click);
             // 
             // tabPage4
             // 
@@ -689,45 +694,15 @@
             this.tabPage4.Text = "MISC";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // ButtonEmployeeAll
+            // ButtonSmartlaunchVersion
             // 
-            this.ButtonEmployeeAll.Location = new System.Drawing.Point(6, 6);
-            this.ButtonEmployeeAll.Name = "ButtonEmployeeAll";
-            this.ButtonEmployeeAll.Size = new System.Drawing.Size(150, 30);
-            this.ButtonEmployeeAll.TabIndex = 46;
-            this.ButtonEmployeeAll.Text = "EmployeeAll";
-            this.ButtonEmployeeAll.UseVisualStyleBackColor = true;
-            this.ButtonEmployeeAll.Click += new System.EventHandler(this.ButtonEmployeeAll_Click);
-            // 
-            // ButtonEmployee
-            // 
-            this.ButtonEmployee.Location = new System.Drawing.Point(6, 42);
-            this.ButtonEmployee.Name = "ButtonEmployee";
-            this.ButtonEmployee.Size = new System.Drawing.Size(150, 30);
-            this.ButtonEmployee.TabIndex = 47;
-            this.ButtonEmployee.Text = "Employee";
-            this.ButtonEmployee.UseVisualStyleBackColor = true;
-            this.ButtonEmployee.Click += new System.EventHandler(this.ButtonEmployee_Click);
-            // 
-            // ButtonEmployeeLogin
-            // 
-            this.ButtonEmployeeLogin.Location = new System.Drawing.Point(6, 78);
-            this.ButtonEmployeeLogin.Name = "ButtonEmployeeLogin";
-            this.ButtonEmployeeLogin.Size = new System.Drawing.Size(150, 30);
-            this.ButtonEmployeeLogin.TabIndex = 48;
-            this.ButtonEmployeeLogin.Text = "EmployeeLogin";
-            this.ButtonEmployeeLogin.UseVisualStyleBackColor = true;
-            this.ButtonEmployeeLogin.Click += new System.EventHandler(this.ButtonEmployeeLogin_Click);
-            // 
-            // ButtonFinancialReport
-            // 
-            this.ButtonFinancialReport.Location = new System.Drawing.Point(6, 150);
-            this.ButtonFinancialReport.Name = "ButtonFinancialReport";
-            this.ButtonFinancialReport.Size = new System.Drawing.Size(150, 30);
-            this.ButtonFinancialReport.TabIndex = 49;
-            this.ButtonFinancialReport.Text = "FinancialReport";
-            this.ButtonFinancialReport.UseVisualStyleBackColor = true;
-            this.ButtonFinancialReport.Click += new System.EventHandler(this.ButtonFinancialReport_Click);
+            this.ButtonSmartlaunchVersion.Location = new System.Drawing.Point(324, 42);
+            this.ButtonSmartlaunchVersion.Name = "ButtonSmartlaunchVersion";
+            this.ButtonSmartlaunchVersion.Size = new System.Drawing.Size(150, 30);
+            this.ButtonSmartlaunchVersion.TabIndex = 51;
+            this.ButtonSmartlaunchVersion.Text = "SmartlaunchVersion";
+            this.ButtonSmartlaunchVersion.UseVisualStyleBackColor = true;
+            this.ButtonSmartlaunchVersion.Click += new System.EventHandler(this.ButtonSmartlaunchVersion_Click);
             // 
             // ButtonRESTAPIVersion
             // 
@@ -739,15 +714,45 @@
             this.ButtonRESTAPIVersion.UseVisualStyleBackColor = true;
             this.ButtonRESTAPIVersion.Click += new System.EventHandler(this.ButtonRESTAPIVersion_Click);
             // 
-            // ButtonSmartlaunchVersion
+            // ButtonFinancialReport
             // 
-            this.ButtonSmartlaunchVersion.Location = new System.Drawing.Point(324, 42);
-            this.ButtonSmartlaunchVersion.Name = "ButtonSmartlaunchVersion";
-            this.ButtonSmartlaunchVersion.Size = new System.Drawing.Size(150, 30);
-            this.ButtonSmartlaunchVersion.TabIndex = 51;
-            this.ButtonSmartlaunchVersion.Text = "SmartlaunchVersion";
-            this.ButtonSmartlaunchVersion.UseVisualStyleBackColor = true;
-            this.ButtonSmartlaunchVersion.Click += new System.EventHandler(this.ButtonSmartlaunchVersion_Click);
+            this.ButtonFinancialReport.Location = new System.Drawing.Point(6, 150);
+            this.ButtonFinancialReport.Name = "ButtonFinancialReport";
+            this.ButtonFinancialReport.Size = new System.Drawing.Size(150, 30);
+            this.ButtonFinancialReport.TabIndex = 49;
+            this.ButtonFinancialReport.Text = "FinancialReport";
+            this.ButtonFinancialReport.UseVisualStyleBackColor = true;
+            this.ButtonFinancialReport.Click += new System.EventHandler(this.ButtonFinancialReport_Click);
+            // 
+            // ButtonEmployeeLogin
+            // 
+            this.ButtonEmployeeLogin.Location = new System.Drawing.Point(6, 78);
+            this.ButtonEmployeeLogin.Name = "ButtonEmployeeLogin";
+            this.ButtonEmployeeLogin.Size = new System.Drawing.Size(150, 30);
+            this.ButtonEmployeeLogin.TabIndex = 48;
+            this.ButtonEmployeeLogin.Text = "EmployeeLogin";
+            this.ButtonEmployeeLogin.UseVisualStyleBackColor = true;
+            this.ButtonEmployeeLogin.Click += new System.EventHandler(this.ButtonEmployeeLogin_Click);
+            // 
+            // ButtonEmployee
+            // 
+            this.ButtonEmployee.Location = new System.Drawing.Point(6, 42);
+            this.ButtonEmployee.Name = "ButtonEmployee";
+            this.ButtonEmployee.Size = new System.Drawing.Size(150, 30);
+            this.ButtonEmployee.TabIndex = 47;
+            this.ButtonEmployee.Text = "Employee";
+            this.ButtonEmployee.UseVisualStyleBackColor = true;
+            this.ButtonEmployee.Click += new System.EventHandler(this.ButtonEmployee_Click);
+            // 
+            // ButtonEmployeeAll
+            // 
+            this.ButtonEmployeeAll.Location = new System.Drawing.Point(6, 6);
+            this.ButtonEmployeeAll.Name = "ButtonEmployeeAll";
+            this.ButtonEmployeeAll.Size = new System.Drawing.Size(150, 30);
+            this.ButtonEmployeeAll.TabIndex = 46;
+            this.ButtonEmployeeAll.Text = "EmployeeAll";
+            this.ButtonEmployeeAll.UseVisualStyleBackColor = true;
+            this.ButtonEmployeeAll.Click += new System.EventHandler(this.ButtonEmployeeAll_Click);
             // 
             // Form1
             // 

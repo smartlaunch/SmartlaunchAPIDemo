@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Demo
@@ -37,33 +38,28 @@ namespace Demo
             txtOutput.Text += Environment.NewLine + Environment.NewLine + response;
         }
 
-        private void POSTFunction(string endpoint, object parameter)
+        private void POSTFunction(string endpoint, StringContent content)
         {
-            HttpResponseMessage response = _client.PostAsJsonAsync(endpoint, parameter).Result;
+            HttpResponseMessage response = _client.PostAsync(endpoint, content).Result;
             txtOutput.Text += Environment.NewLine + response;
         }
 
-        private void PUTFunction(string endpoint, object parameter)
+        private void PUTFunction(string endpoint, StringContent content)
         {
-            HttpResponseMessage response = _client.PutAsJsonAsync(endpoint, parameter).Result;
+            HttpResponseMessage response = _client.PutAsync(endpoint, content).Result;
             txtOutput.Text += Environment.NewLine + response;
         }
 
         public Form1()
         {
             InitializeComponent();
-            txtIPAddress.Text = @"172.16.124.69"; //put your Smartlaunch Server IP Address here.
+            txtIPAddress.Text = @"172.16.124.28"; //put your Smartlaunch Server IP Address here.
             NewConnection();
         }
 
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
             NewConnection();
-        }
-
-        private void txtOutput_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
         }
 
 #region "USERS"
@@ -99,7 +95,9 @@ namespace Demo
         private void UserCreate_Click(object sender, EventArgs e)
         {
             WriteOutput("POST /users");
-            POSTFunction("/users", new UserCreate { UserName = "edwin2", UsergroupName = "Members" });
+            var content = new StringContent(@"{""UserCreate"":{""UserName"":""edwin2"",""UsergroupName"":""Members""}}",
+                                            Encoding.UTF8, "application/json");
+            POSTFunction("/users", content);
         }
 
         public class UserUpdate
@@ -121,13 +119,15 @@ namespace Demo
         private void UserUpdate_Click(object sender, EventArgs e)
         {
             WriteOutput("PUT /users/{username}");
-            PUTFunction("/users/edwin", new UserUpdate { FirstName = "Edwin", LastName = "Smartlaunch", Birthday = 531831420, Address = "Power House", City = "Gianyar", Zip = "80582", State = "Bali", Country = "Indonesia", Email = "ek@smartlaunch.com", Telephone = "12345678", MobilePhone = "87654321", Sex = 1, PersonalNumber = "99999" });
+            var content = new StringContent(@"{""UserUpdate"":{""FirstName"":""Edwin"",""LastName"":""Smartlaunch"",""Birthday"":531831420,""Address"":""Power House"",""City"":""Gianyar"",""Zip"":""80582"",""State"":""Bali"",""Country"":""Indonesia"",""Email"":""ek@smartlaunch.com"",""Telephone"":""12345678"",""MobilePhone"":""87654321"",""Sex"":1,""PersonalNumber"":""99999""}}",
+                                            Encoding.UTF8, "application/json");
+            PUTFunction("/users/edwin", content);
         }
 
         private void UserMoveUserGroup_Click(object sender, EventArgs e)
         {
             WriteOutput("PUT /users/{username}/moveusergroup?newusergroupid={newusergroupid}");
-            PUTFunction("/users/edwin/moveusergroup?newusergroupid=2", new object() );
+            PUTFunction("/users/edwin/moveusergroup?newusergroupid=2", null );
         }
 
         private void UserLogin_Click(object sender, EventArgs e)
@@ -157,19 +157,127 @@ namespace Demo
         private void UserOpen_Click(object sender, EventArgs e)
         {
             WriteOutput("PUT /users/{username}/open");
-            PUTFunction("/users/edwin/open", new object());
+            PUTFunction("/users/edwin/open", null);
         }
 
         private void UserLock_Click(object sender, EventArgs e)
         {
             WriteOutput("PUT /users/{username}/lock");
-            PUTFunction("/users/edwin/lock", new object());
+            PUTFunction("/users/edwin/lock", null);
         }
 
         private void UserGetBill_Click(object sender, EventArgs e)
         {
             WriteOutput("GET /users/{username}/bill");
             GETFunction("/users/edwin/bill");
+        }
+
+        public class UserAddTime
+        {
+            public int Minutes { get; set; }
+            public double TotalPrice { get; set; }
+            public bool IsTaxIncluded { get; set; }
+        }
+        private void ButtonUserAddTime_Click(object sender, EventArgs e)
+        {
+            WriteOutput("PUT /users/{username}/addtime");
+
+            var content = new StringContent(@"{""UserAddTime"":{""Minutes"":60,""TotalPrice"":1.00,""IsTaxIncluded"":true}}", 
+                                            Encoding.UTF8, "application/json");
+            PUTFunction("/users/edwin/addtime", content);
+        }
+
+        public class UserAddMoney
+        {
+            public double Amount { get; set; }
+        }
+        private void ButtonUserAddMoney_Click(object sender, EventArgs e)
+        {
+            WriteOutput("PUT /users/{username}/addmoney");
+
+            var content = new StringContent(@"{""UserAddMoney"":{""Amount"":12.50}}",
+                                            Encoding.UTF8, "application/json");
+            PUTFunction("/users/edwin/addmoney", content);
+        }
+
+        public class UserAddProduct
+        {
+            public string ProductID { get; set; }
+            public int Quantity { get; set; }
+            public int Paymode { get; set; }
+            public double TotalPrice { get; set; }
+            public bool IsTaxIncluded { get; set; }
+            public string Note { get; set; }
+        }
+        private void ButtonUserAddProduct_Click(object sender, EventArgs e)
+        {
+            WriteOutput("PUT /users/{username}/addproduct");
+            var content = new StringContent(@"{""UserAddProduct"":{""ProductID"":""39"",""Quantity"":1,""Paymode"":1,""TotalPrice"":1.10,""IsTaxIncluded"":true,""Note"":""""}}",
+                                            Encoding.UTF8, "application/json"); 
+            PUTFunction("/users/edwin/addproduct", content);
+        }
+
+        public class UserProduct
+        {
+            public string ProductID { get; set; }
+            public int Quantity { get; set; }
+            public double TotalPrice { get; set; }
+            public string Note { get; set; }
+        }
+        public class UserAddProducts
+        {
+            public UserProduct[] Products { get; set; }
+            public int Paymode { get; set; }
+            public bool IsTaxIncluded { get; set; }
+        }
+        private void ButtonUserAddProducts_Click(object sender, EventArgs e)
+        {
+            WriteOutput("PUT /users/{username}/addproducts");
+            var content = new StringContent(@"{""UserAddProducts"":{""Products"":[{""ProductID"":""39"",""Quantity"":1,""TotalPrice"":1.10,""Note"":""""},{""ProductID"":""26"",""Quantity"":1,""TotalPrice"":2.10,""Note"":""""}],""Paymode"":1,""IsTaxIncluded"":true}}",
+                                            Encoding.UTF8, "application/json");
+            PUTFunction("/users/edwin/addproducts", content);
+        }
+
+        public class UserAddOffer
+        {
+            public string OfferID { get; set; }
+            public int Quantity { get; set; }
+            public int Paymode { get; set; }
+            public double TotalPrice { get; set; }
+            public bool IsTaxIncluded { get; set; }
+            public bool IsFixedStart { get; set; }
+            public double StartDate { get; set; }
+            public string Note { get; set; }
+        }
+        private void ButtonUserAddOffer_Click(object sender, EventArgs e)
+        {
+            WriteOutput("PUT /users/{username}/addoffer");
+            var content = new StringContent(@"{""UserAddOffer"":{""OfferID"":""1"",""Quantity"":1,""Paymode"":1,""TotalPrice"":1.10,""IsTaxIncluded"":true,""IsFixedStart"":true,""StartDate"":1404484200,""Note"":""""}}",
+                                            Encoding.UTF8, "application/json");
+            PUTFunction("/users/edwin/addoffer", content);
+        }
+
+        public class UserOffer
+        {
+            public string OfferID { get; set; }
+            public int Quantity { get; set; }
+            public double TotalPrice { get; set; }
+            public bool IsFixedStart { get; set; }
+            public double StartDate { get; set; }
+            public string Note { get; set; }
+        }
+        public class UserAddOffers
+        {
+            public UserOffer[] Offers { get; set; }
+            public int Paymode { get; set; }
+            public bool IsTaxIncluded { get; set; }
+        }
+        private void ButtonUserAddOffers_Click(object sender, EventArgs e)
+        {
+            WriteOutput("PUT /users/{username}/addoffers");
+            var content = new StringContent(@"{""UserAddOffers"":{""Offers"":[{""OfferID"":""1"",""Quantity"":1,""TotalPrice"":1.10,""IsFixedStart"":true,""StartDate"":1404484200,""Note"":""""},{""OfferID"":""2"",""Quantity"":1,""TotalPrice"":2.10,""IsFixedStart"":true,""StartDate"":1404484200,""Note"":""""}],""Paymode"":1,""IsTaxIncluded"":true}}",
+                                            Encoding.UTF8, "application/json");
+            PUTFunction("/users/edwin/addoffers", content);
         }
 #endregion
 
@@ -203,13 +311,13 @@ namespace Demo
         private void ButtonComputerTurnOn_Click(object sender, EventArgs e)
         {
             WriteOutput("PUT /computers/{computername}/turnon");
-            PUTFunction("/computers/PC001/turnon", new object());
+            PUTFunction("/computers/PC001/turnon", null);
         }
 
         private void ButtonComputerTurnOff_Click(object sender, EventArgs e)
         {
             WriteOutput("PUT /computers/{computername}/turnoff");
-            PUTFunction("/computers/PC001/turnoff", new object());
+            PUTFunction("/computers/PC001/turnoff", null);
         }
 
         private void ButtonComputerGroupAll_Click(object sender, EventArgs e)
@@ -334,6 +442,7 @@ namespace Demo
             GETFunction("/smartlaunchversion");
         }
 #endregion
+        
 
     }
 }
