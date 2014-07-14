@@ -13,4 +13,4 @@ Changelog
 - Fixed all POST and PUT end points request format
 
 **10 July 2014**
-First commit
+- First commit
