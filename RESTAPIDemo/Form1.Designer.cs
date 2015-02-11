@@ -33,6 +33,7 @@
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chkLocalhost = new System.Windows.Forms.CheckBox();
             this.btnTestConnection = new System.Windows.Forms.Button();
             this.txtIPAddress = new IPAddressControlLib.IPAddressControl();
             this.txtPort = new System.Windows.Forms.MaskedTextBox();
@@ -88,6 +89,7 @@
             this.ButtonEmployeeLogin = new System.Windows.Forms.Button();
             this.ButtonEmployee = new System.Windows.Forms.Button();
             this.ButtonEmployeeAll = new System.Windows.Forms.Button();
+            this.btnCheckPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -136,6 +138,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.chkLocalhost);
             this.groupBox3.Controls.Add(this.btnTestConnection);
             this.groupBox3.Controls.Add(this.txtIPAddress);
             this.groupBox3.Controls.Add(this.txtPort);
@@ -147,6 +150,17 @@
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Options";
+            // 
+            // chkLocalhost
+            // 
+            this.chkLocalhost.AutoSize = true;
+            this.chkLocalhost.Location = new System.Drawing.Point(87, 11);
+            this.chkLocalhost.Name = "chkLocalhost";
+            this.chkLocalhost.Size = new System.Drawing.Size(72, 17);
+            this.chkLocalhost.TabIndex = 7;
+            this.chkLocalhost.Text = "Localhost";
+            this.chkLocalhost.UseVisualStyleBackColor = true;
+            this.chkLocalhost.CheckedChanged += new System.EventHandler(this.chkLocalhost_CheckedChanged);
             // 
             // btnTestConnection
             // 
@@ -221,6 +235,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnCheckPassword);
             this.tabPage1.Controls.Add(this.ButtonUserGroup);
             this.tabPage1.Controls.Add(this.ButtonUserGroupAll);
             this.tabPage1.Controls.Add(this.ButtonUserAddOffers);
@@ -754,6 +769,16 @@
             this.ButtonEmployeeAll.UseVisualStyleBackColor = true;
             this.ButtonEmployeeAll.Click += new System.EventHandler(this.ButtonEmployeeAll_Click);
             // 
+            // btnCheckPassword
+            // 
+            this.btnCheckPassword.Location = new System.Drawing.Point(318, 438);
+            this.btnCheckPassword.Name = "btnCheckPassword";
+            this.btnCheckPassword.Size = new System.Drawing.Size(150, 30);
+            this.btnCheckPassword.TabIndex = 46;
+            this.btnCheckPassword.Text = "Check Password";
+            this.btnCheckPassword.UseVisualStyleBackColor = true;
+            this.btnCheckPassword.Click += new System.EventHandler(this.btnCheckPassword_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -841,6 +866,8 @@
         private System.Windows.Forms.Button ButtonEmployeeAll;
         private System.Windows.Forms.Button ButtonSmartlaunchVersion;
         private System.Windows.Forms.Button ButtonRESTAPIVersion;
+        private System.Windows.Forms.CheckBox chkLocalhost;
+        private System.Windows.Forms.Button btnCheckPassword;
     }
 }
 

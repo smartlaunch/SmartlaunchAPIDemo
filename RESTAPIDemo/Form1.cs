@@ -14,10 +14,19 @@ namespace Demo
         private void NewConnection()
         {
             IPAddress tmpIP;
-            int tmpPort;
-            if (IPAddress.TryParse(txtIPAddress.Text, out tmpIP) && int.TryParse(txtPort.Text, out tmpPort))
+            int tmpPort = 7833;
+            if (!chkLocalhost.Checked && IPAddress.TryParse(txtIPAddress.Text, out tmpIP) 
+                && int.TryParse(txtPort.Text, out tmpPort))
             {
+                // Normal IP
                 UriAddress = new Uri(String.Format("http://{0}:{1}", tmpIP, tmpPort));
+
+                _client = new HttpClient();
+                _client.BaseAddress = UriAddress;
+
+            } else if (chkLocalhost.Checked && IPAddress.TryParse(txtIPAddress.Text, out tmpIP)) {
+                // Localhost
+                UriAddress = new Uri(String.Format("http://localhost:{0}", tmpPort));
 
                 _client = new HttpClient();
                 _client.BaseAddress = UriAddress;
@@ -60,6 +69,12 @@ namespace Demo
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
             NewConnection();
+            TestConnection();
+        }
+
+        private void chkLocalhost_CheckedChanged(object sender, EventArgs e)
+        {
+            txtIPAddress.Enabled = !txtIPAddress.Enabled;
         }
 
 #region "USERS"
@@ -135,6 +150,14 @@ namespace Demo
             WriteOutput("GET /users/{username}/login?computername={computername}");
             GETFunction("/users/edwin/login?computername=PC001");
         }
+
+        // Dylan >>
+        private void btnCheckPassword_Click(object sender, EventArgs e)
+        {
+            WriteOutput("GET /users/{username}/check?password={pass}");
+            GETFunction("/users/edwin/check?password=123456");
+        }
+        // <<
 
         private void UserLoginToConsole_Click(object sender, EventArgs e)
         {
@@ -438,10 +461,19 @@ namespace Demo
 
         private void ButtonSmartlaunchVersion_Click(object sender, EventArgs e)
         {
+            TestConnection();
+        }
+
+        private void TestConnection()
+        {
             WriteOutput("GET /smartlaunchversion");
             GETFunction("/smartlaunchversion");
         }
 #endregion
+
+
+
+
         
 
     }
