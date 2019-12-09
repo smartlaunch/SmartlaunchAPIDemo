@@ -15,7 +15,7 @@ namespace Demo
         {
             IPAddress tmpIP;
             int tmpPort = 7833;
-            if (!chkLocalhost.Checked && IPAddress.TryParse(txtIPAddress.Text, out tmpIP) 
+            if (!chkLocalhost.Checked && IPAddress.TryParse(txtIPAddress.Text, out tmpIP)
                 && int.TryParse(txtPort.Text, out tmpPort))
             {
                 // Normal IP
@@ -24,7 +24,9 @@ namespace Demo
                 _client = new HttpClient();
                 _client.BaseAddress = UriAddress;
 
-            } else if (chkLocalhost.Checked && IPAddress.TryParse(txtIPAddress.Text, out tmpIP)) {
+            }
+            else if (chkLocalhost.Checked && IPAddress.TryParse(txtIPAddress.Text, out tmpIP))
+            {
                 // Localhost
                 UriAddress = new Uri(String.Format("http://localhost:{0}", tmpPort));
 
@@ -77,7 +79,7 @@ namespace Demo
             txtIPAddress.Enabled = !txtIPAddress.Enabled;
         }
 
-#region "USERS"
+        #region "USERS"
         private void UserAll_Click(object sender, EventArgs e)
         {
             WriteOutput("GET /users");
@@ -142,7 +144,7 @@ namespace Demo
         private void UserMoveUserGroup_Click(object sender, EventArgs e)
         {
             WriteOutput("PUT /users/{username}/moveusergroup?newusergroupid={newusergroupid}");
-            PUTFunction("/users/edwin/moveusergroup?newusergroupid=2", null );
+            PUTFunction("/users/edwin/moveusergroup?newusergroupid=2", null);
         }
 
         private void UserLogin_Click(object sender, EventArgs e)
@@ -205,7 +207,7 @@ namespace Demo
         {
             WriteOutput("PUT /users/{username}/addtime");
 
-            var content = new StringContent(@"{""UserAddTime"":{""Minutes"":60,""TotalPrice"":1.00,""IsTaxIncluded"":true}}", 
+            var content = new StringContent(@"{""UserAddTime"":{""Minutes"":60,""TotalPrice"":1.00,""IsTaxIncluded"":true}}",
                                             Encoding.UTF8, "application/json");
             PUTFunction("/users/edwin/addtime", content);
         }
@@ -236,7 +238,7 @@ namespace Demo
         {
             WriteOutput("PUT /users/{username}/addproduct");
             var content = new StringContent(@"{""UserAddProduct"":{""ProductID"":""39"",""Quantity"":1,""Paymode"":1,""TotalPrice"":1.10,""IsTaxIncluded"":true,""Note"":""""}}",
-                                            Encoding.UTF8, "application/json"); 
+                                            Encoding.UTF8, "application/json");
             PUTFunction("/users/edwin/addproduct", content);
         }
 
@@ -302,9 +304,9 @@ namespace Demo
                                             Encoding.UTF8, "application/json");
             PUTFunction("/users/edwin/addoffers", content);
         }
-#endregion
+        #endregion
 
-#region "USERGROUPS"
+        #region "USERGROUPS"
         private void UserGroupAll_Click(object sender, EventArgs e)
         {
             WriteOutput("GET /usergroups");
@@ -316,9 +318,9 @@ namespace Demo
             WriteOutput("GET /usergroups/{usergroupname}");
             GETFunction("/usergroups/Members");
         }
-#endregion
+        #endregion
 
-#region "COMPUTERS"
+        #region "COMPUTERS"
         private void ButtonComputerAll_Click(object sender, EventArgs e)
         {
             WriteOutput("GET /computers");
@@ -384,9 +386,9 @@ namespace Demo
             WriteOutput("GET /layoutgroups/bycomputername?computername={computername}");
             GETFunction("/layoutgroups/bycomputername?computername=PC001");
         }
-#endregion
+        #endregion
 
-#region "PRODUCTS AND OFFERS"
+        #region "PRODUCTS AND OFFERS"
         private void ButtonProductGroupAll_Click(object sender, EventArgs e)
         {
             WriteOutput("GET /productgroups");
@@ -422,9 +424,9 @@ namespace Demo
             WriteOutput("GET /offers");
             GETFunction("/offers/Offer1");
         }
-#endregion
+        #endregion
 
-#region "EMPLOYEES"
+        #region "EMPLOYEES"
         private void ButtonEmployeeAll_Click(object sender, EventArgs e)
         {
             WriteOutput("GET /employees");
@@ -442,17 +444,17 @@ namespace Demo
             WriteOutput("/employees/{employeename}/login?password={password}");
             GETFunction("/employees/Admin/login?password=12345678");
         }
-#endregion
+        #endregion
 
-#region "FINANCIAL REPORTS"
+        #region "FINANCIAL REPORTS"
         private void ButtonFinancialReport_Click(object sender, EventArgs e)
         {
             WriteOutput("GET /financialreport/startdate={startdate}&enddate={enddate}&employeename={employeename}");
             GETFunction("/financialreport/startdate=1404172800&enddate=1404950400&employeename=Admin");
         }
-#endregion
+        #endregion
 
-#region "GENERAL"
+        #region "GENERAL"
         private void ButtonRESTAPIVersion_Click(object sender, EventArgs e)
         {
             WriteOutput("GET /restapiversion");
@@ -469,12 +471,33 @@ namespace Demo
             WriteOutput("GET /smartlaunchversion");
             GETFunction("/smartlaunchversion");
         }
-#endregion
 
 
 
 
-        
+
+        #endregion
+
+        #region "BOOKING"
+        private void ButtonBookingAll_Click(object sender, EventArgs e)
+        {
+            WriteOutput("GET /bookings");
+            GETFunction("/bookings");
+        }
+
+        private void ButtonBookingCreate_Click(object sender, EventArgs e)
+        {
+            WriteOutput("POST /bookings");
+            var content = new StringContent(@"{""BookingAdd"":{""bookingid"":""1"",""description"":""booked pc"",
+                                            ""startdate"":1404484200,""enddate"":1404484200,
+                                            ""computers"":""1"",""customername"":""hans"",
+                                            ""customerphone"":""123456789"",""smoking"":false,}}",
+                                            Encoding.UTF8, "application/json");
+            POSTFunction("/bookings", content);
+        }
+
+        #endregion
+
 
     }
 }

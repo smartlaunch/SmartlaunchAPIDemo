@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnCheckPassword = new System.Windows.Forms.Button();
             this.ButtonUserGroup = new System.Windows.Forms.Button();
             this.ButtonUserGroupAll = new System.Windows.Forms.Button();
             this.ButtonUserAddOffers = new System.Windows.Forms.Button();
@@ -89,7 +90,8 @@
             this.ButtonEmployeeLogin = new System.Windows.Forms.Button();
             this.ButtonEmployee = new System.Windows.Forms.Button();
             this.ButtonEmployeeAll = new System.Windows.Forms.Button();
-            this.btnCheckPassword = new System.Windows.Forms.Button();
+            this.ButtonBookingAll = new System.Windows.Forms.Button();
+            this.ButtonBookingCreate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -265,6 +267,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "USER AND USERGROUP";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnCheckPassword
+            // 
+            this.btnCheckPassword.Location = new System.Drawing.Point(318, 438);
+            this.btnCheckPassword.Name = "btnCheckPassword";
+            this.btnCheckPassword.Size = new System.Drawing.Size(150, 30);
+            this.btnCheckPassword.TabIndex = 46;
+            this.btnCheckPassword.Text = "Check Password";
+            this.btnCheckPassword.UseVisualStyleBackColor = true;
+            this.btnCheckPassword.Click += new System.EventHandler(this.btnCheckPassword_Click);
             // 
             // ButtonUserGroup
             // 
@@ -695,6 +707,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.ButtonBookingCreate);
+            this.tabPage4.Controls.Add(this.ButtonBookingAll);
             this.tabPage4.Controls.Add(this.ButtonSmartlaunchVersion);
             this.tabPage4.Controls.Add(this.ButtonRESTAPIVersion);
             this.tabPage4.Controls.Add(this.ButtonFinancialReport);
@@ -769,15 +783,25 @@
             this.ButtonEmployeeAll.UseVisualStyleBackColor = true;
             this.ButtonEmployeeAll.Click += new System.EventHandler(this.ButtonEmployeeAll_Click);
             // 
-            // btnCheckPassword
+            // ButtonBookingAll
             // 
-            this.btnCheckPassword.Location = new System.Drawing.Point(318, 438);
-            this.btnCheckPassword.Name = "btnCheckPassword";
-            this.btnCheckPassword.Size = new System.Drawing.Size(150, 30);
-            this.btnCheckPassword.TabIndex = 46;
-            this.btnCheckPassword.Text = "Check Password";
-            this.btnCheckPassword.UseVisualStyleBackColor = true;
-            this.btnCheckPassword.Click += new System.EventHandler(this.btnCheckPassword_Click);
+            this.ButtonBookingAll.Location = new System.Drawing.Point(6, 227);
+            this.ButtonBookingAll.Name = "ButtonBookingAll";
+            this.ButtonBookingAll.Size = new System.Drawing.Size(150, 30);
+            this.ButtonBookingAll.TabIndex = 52;
+            this.ButtonBookingAll.Text = "BookingAll";
+            this.ButtonBookingAll.UseVisualStyleBackColor = true;
+            this.ButtonBookingAll.Click += new System.EventHandler(this.ButtonBookingAll_Click);
+            // 
+            // ButtonBookingCreate
+            // 
+            this.ButtonBookingCreate.Location = new System.Drawing.Point(6, 263);
+            this.ButtonBookingCreate.Name = "ButtonBookingCreate";
+            this.ButtonBookingCreate.Size = new System.Drawing.Size(150, 30);
+            this.ButtonBookingCreate.TabIndex = 53;
+            this.ButtonBookingCreate.Text = "BookingCreate";
+            this.ButtonBookingCreate.UseVisualStyleBackColor = true;
+            this.ButtonBookingCreate.Click += new System.EventHandler(this.ButtonBookingCreate_Click);
             // 
             // Form1
             // 
@@ -868,6 +892,8 @@
         private System.Windows.Forms.Button ButtonRESTAPIVersion;
         private System.Windows.Forms.CheckBox chkLocalhost;
         private System.Windows.Forms.Button btnCheckPassword;
+        private System.Windows.Forms.Button ButtonBookingAll;
+        private System.Windows.Forms.Button ButtonBookingCreate;
     }
 }
 
